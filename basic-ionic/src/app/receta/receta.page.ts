@@ -10,7 +10,7 @@ import { RecetaService } from '../service/receta.service';
 export class RecetaPage implements OnInit {
 
   recetas: Receta[] = [] ;
-
+  
   constructor(private recetaService: RecetaService) { }
 
   ngOnInit() {

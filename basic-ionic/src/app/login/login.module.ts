@@ -8,7 +8,6 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import { ModalErrorComponent } from '../componentes/datos-alumnos/modal-error/modal-error.component';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -20,3 +19,4 @@ import { ModalErrorComponent } from '../componentes/datos-alumnos/modal-error/mo
   declarations: [LoginPage, ModalErrorComponent]
 })
 export class LoginPageModule {}
+

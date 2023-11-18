@@ -43,6 +43,10 @@ const routes: Routes = [
         path: 'inicio',
         loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
       },
+      {
+        path: 'destinos-api',
+        loadChildren: () => import('./destinos-api/destinos-api.module').then( m => m.DestinosApiPageModule)
+      }
     ],
    canActivate: [AutGuardGuard]
   },
@@ -53,7 +57,7 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  }
+  },
 ];
 
 

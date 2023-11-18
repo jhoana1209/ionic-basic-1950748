@@ -26,7 +26,7 @@ export class DestinosApiPage implements OnInit {
   ngOnInit() {
     this.buildForm();
     this.getPosition();
-    //this.getLugares();
+    this.getLugares();
   }
 
   getLugares(){

@@ -46,7 +46,12 @@ const routes: Routes = [
       {
         path: 'destinos-api',
         loadChildren: () => import('./destinos-api/destinos-api.module').then( m => m.DestinosApiPageModule)
+      },
+      {
+        path: 'galeria',
+        loadChildren: () => import('./galeria/galeria.module').then( m => m.GaleriaPageModule)
       }
+
     ],
    canActivate: [AutGuardGuard]
   },

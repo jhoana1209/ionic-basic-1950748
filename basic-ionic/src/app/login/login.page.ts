@@ -6,7 +6,7 @@ import { AutService } from '../service/aut.service';
 import { Router } from '@angular/router';
 import { MenuService } from '../service/menu.service';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
-
+import { StorageService } from '../service/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,8 @@ export class LoginPage implements OnInit {
   
   user: User = new User();
   ionicForm: any;
+  usuario: any = {};
+
 
   constructor(
     private router: Router,
@@ -24,11 +26,15 @@ export class LoginPage implements OnInit {
     private autSvc: AutService,
     private menu: MenuService,
     private formBuilder: FormBuilder,
-    public loadingController: LoadingController
-  ) { }
+    public loadingController: LoadingController,
+    private storage : StorageService  
+    ) { }
 
   ngOnInit() {
     this.buildForm();
+    this.storage.setValue('usuario',
+    {nombre:'bgr nombre', direccion:'Jose Silvestre aramberri'})
+    this.getUsuario();
   }
 
   buildForm(){
@@ -112,5 +118,16 @@ export class LoginPage implements OnInit {
 
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed with role:', role);
-  }   
+  } 
+
+  getUsuario(){
+    this.storage.getValue('usuario').
+    then(user=>{
+      this.usuario = user;
+      console.info(this.usuario);
+    }).
+    catch(error=>{
+      console.error(error);
+    });
+  }
 }
